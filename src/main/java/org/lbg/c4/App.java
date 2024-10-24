@@ -2,7 +2,8 @@ package org.lbg.c4;
 
 
 import java.io.IOException;
-
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 /**
  * Hello world!
  */
@@ -10,19 +11,16 @@ public class App
 {
     public static void main(String[] args)
     {
-        int counter = 0;
-        int val;
+        InputStreamReader isr = new InputStreamReader(System.in);
+        LineNumberReader lnr = new LineNumberReader(isr);
+
 
         try
 
         {
-            while ((val = (char)System.in.read()) != -1)
+            while ( lnr.readLine() != null)
 
-            {
-                System.out.println("Character entered: " + Integer.toHexString(val));
-                counter++;
-            }
-            System.out.println("No of chars: " + counter);
+            System.out.println("No of lines: " + lnr.getLineNumber());
         }catch (IOException e)
 
         {
