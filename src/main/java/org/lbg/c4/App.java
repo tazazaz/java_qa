@@ -11,6 +11,7 @@ public class App
 {
     public static void main(String[] args)
     {
+        /*
         InputStreamReader isr = new InputStreamReader(System.in);
         LineNumberReader lnr = new LineNumberReader(isr);
 
@@ -26,6 +27,21 @@ public class App
         {
             System.out.println(e);
         }
+
+
+
+        BankAccount ba = new BankAccount(33.33);
+
+        System.out.println(ba.getBalance());
+
+
+
+
+        Calculator ca = new Calculator(10);
+
+        System.out.println(ca.add(10));
+
+        */
 
 
     }
