@@ -30,6 +30,68 @@ public class SessionTest {
         verify(names, times(1)).add(any());
     }
 
+    interface IRegister
+    {
+        String getDelegate(int idx);
+        int getNumberRegistered();
+    }
+
+    class Register implements IRegister
+    {
+        private ArrayList<String> delegates = new ArrayList<>();  // simulates a DB table
+
+        public Register()
+        {
+            delegates.add("Selvyn");
+            delegates.add("Lonyin");
+            delegates.add("Julia");
+        }
+
+        public String getDelegate(int idx)
+        {
+            return delegates.get(idx-1);
+        }
+
+        public int getNumberRegistered()
+        {
+            return delegates.size();
+        }
+    }
+
+    class   Course
+    {
+        private IRegister reg;
+
+        public Course( IRegister register)
+        {
+            reg = register;
+        }
+
+        public String getLastPersonRegistered()
+        {
+            String result = reg.getDelegate(reg.getNumberRegistered());
+
+            return result;
+        }
+    }
+
+    @Test
+    public  void    verify_lastName_returned_is_lastName_in_register()
+    {
+        // arrange
+        IRegister reg = new Register();
+        Course cut = new Course( reg );
+        String expectedResult = "Julia";
+
+        // act
+        String actualResult = cut.getLastPersonRegistered();
+
+        //assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+
     @Test
     public void verify_if_basket_has_correct_items()
     {
