@@ -11,6 +11,9 @@ public class Basket {
         itsItems = new ArrayList(other.itsItems);
     }
 
+    public Basket(){
+
+    }
     public void addItem( Item item )
     {
         itsItems.add( item );

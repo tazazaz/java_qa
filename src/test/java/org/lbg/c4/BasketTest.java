@@ -15,7 +15,7 @@ class BasketTest {
     {
         item1 = new Item("Bananas", 6, 0.19); // 1.14
         item2 = new Item("Avocado", 3, 0.89); // 2.67
-        item3 = new Item("Spinish", 1, 1.27); // 1.27
+        item3 = new Item("Spinich", 1, 1.27); // 1.27
 
     }
     @Test
